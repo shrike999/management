@@ -8,7 +8,7 @@
         background-color="#3D3ABC"
         text-color="#C8C0E2"
         active-text-color="#FEF5EE"
-        style="min-height: 100vh; z-index: 1;"
+        style="min-height: 100vh; z-index: 1; flex-shrink: 0;"
     >
         <el-menu-item v-for="n in noChildren" :index="n.id.toString()" :key="n.id" @click="clickMenu(n)" class="item">
             <i :class="`el-icon-${n.icon}`"></i>

@@ -12,13 +12,13 @@ module.exports = ()=>{
             { value:177, name: 'http'}
         ],
         userList: [],
-        Admin:[
-            {
-                type: super_admin,
-                account: '123',
-                password: '123'
-            }
-        ] 
+        // Admin:[
+        //     {
+        //         type: super_admin,
+        //         account: '123',
+        //         password: '123'
+        //     }
+        // ] 
     }
     for(let i = 0; i < 7; i++){
         data.list.push({
