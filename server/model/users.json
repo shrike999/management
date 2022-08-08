@@ -1,0 +1,14 @@
+[
+    {
+        "username": "user1",
+        "userclass": "super_admin",
+        "password": "$2b$10$OUjcj1fcERA25J/yiTetiedJ.XGaQhSIgRvwqAjcwoFblO2k9dedO",
+        "refreshToken": ""
+    },
+    {
+        "username": "user2",
+        "userclass": "admin",
+        "password": "$2b$10$8ikAaih1ypbsuPG/.gNZgeWaAeHKl7PmVdU3g9U89sKGYohOxx4/.",
+        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNjU5OTM4MzI4LCJleHAiOjE2NjAwMjQ3Mjh9.-_IyGx7-IBYKg7og1wKNsECvg3KqbFxjehlpN3aHl3A"
+    }
+]

@@ -20,7 +20,8 @@ import Tags from './Tags.vue'
 export default {
   name: 'Main',
   components: {CommonAside, CommonHeader, Tags},
-
+  mounted(){
+  }
 }
 </script>
 

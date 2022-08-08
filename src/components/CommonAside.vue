@@ -32,60 +32,11 @@
 </template>
 
 <script>
-import {nanoid} from 'nanoid'
 import { mapState } from 'vuex';
   export default {
     data() {
       return {
-        menu: [
-            {
-                path: '/',
-                name: 'home',
-                lable: '首页',
-                icon: 's-home',
-                url: 'Home/home',
-                id: nanoid()
-            },
-            {
-                path: '/mall',
-                name: 'mall',
-                lable: '商品管理',
-                icon: 'video-play',
-                url: 'MallManage/MallManage',
-                id: nanoid()
-            },
-            {
-                path: '/user',
-                name: 'user',
-                lable: '用户管理',
-                icon: 'user',
-                url: 'UserManage/UserManage',
-                id: nanoid()
-            },
-            {
-                lable: '其他',
-                icon: 'location',
-                id: nanoid(),
-                children: [
-                    {
-                        path: '/page1',
-                        name: 'page1',
-                        lable: '页面1',
-                        icon: 'setting',
-                        url: 'Other/PageOne',
-                        id: nanoid()
-                    },
-                    {
-                        path: '/page2',
-                        name: 'page2',
-                        lable: '页面2',
-                        icon: 'setting',
-                        url: 'Other/PageTwo',
-                        id: nanoid()
-                    },
-                ]
-            }
-        ]
+        menu: []
       };
     },
     computed: {
@@ -114,9 +65,13 @@ import { mapState } from 'vuex';
       }
     },
     mounted(){
-      this.$router.replace({
-        name: 'main'
+      this.$axios({
+        url: 'http://localhost:3000/menu',
+        method: 'get',
+        withCredentials: true,
       })
+        .then( res => this.menu = res.data )
+        .catch( err => console.log(err) )
     }
   }
 </script>

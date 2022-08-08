@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
-import {Container, Aside, Header, Main, Menu, Submenu, 
-  MenuItemGroup, MenuItem, Button, Dropdown, DropdownMenu, 
+import {
+  Container, Aside, Header, Main, Menu, Submenu,
+  MenuItemGroup, MenuItem, Button, Dropdown, DropdownMenu,
   DropdownItem, Row, Col, Card, Table, TableColumn,
-  Dialog, Form, FormItem, Select, Option, Input, Breadcrumb, BreadcrumbItem, Tag} from 'element-ui'
+  Dialog, Form, FormItem, Select, Option, Input, Breadcrumb, BreadcrumbItem, Tag
+} from 'element-ui'
 import router from './router'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
@@ -39,6 +41,33 @@ Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
 Vue.use(Tag)
 
+router.beforeEach(async (to, from, next) => {
+  if (to.name === 'login' || to.name === 'register') {
+    next()
+  } else {
+    axios({
+      url: 'http://localhost:3000/menu',
+      method: 'get',
+      withCredentials: true,
+    })
+      .then(res => {
+        next()
+      })
+      .catch(err => {
+        axios({
+          url: 'http://localhost:3000/refresh',
+          method: 'get',
+          withCredentials: true,
+        })
+          .then(res => {
+            next()
+          })
+          .catch(err => {
+            next({ name: 'login' })
+          })
+      })
+  }
+})
 
 Vue.config.productionTip = false
 
@@ -46,31 +75,31 @@ new Vue({
   render: h => h(App),
   router,
   store,
-  beforeCreate(){
+  beforeCreate() {
     Vue.prototype.$bus = this;
     Vue.prototype.$axios = axios;
   }
 }).$mount('#app')
 
-function debounce(func, delay){
+function debounce(func, delay) {
   let timer;
   let that = this;
   let args = arguments;
-  return function(){
+  return function () {
     clearTimeout(timer)
-    timer = setTimeout(()=>{
+    timer = setTimeout(() => {
       func.apply(that, args)
     }, delay)
   }
 }
 
-function throttle(func, delay){
+function throttle(func, delay) {
   let that = this
   let args = arguments
   let pre = 0
-  return function(){
+  return function () {
     let now = new Date()
-    if((now - pre) > delay){
+    if ((now - pre) > delay) {
       func.apply(that, args)
       pre = now
     }

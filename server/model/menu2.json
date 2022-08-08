@@ -1,0 +1,41 @@
+[
+    {
+        "path":"/",
+        "name":"home",
+        "lable":"首页",
+        "icon":"s-home",
+        "url":"Home/home",
+        "id":"0001"
+    },
+    {
+        "path": "/mall",
+        "name": "mall",
+        "lable": "商品管理",
+        "icon": "video-play",
+        "url": "MallManage/MallManage",
+        "id": "0002"
+    },
+    {
+        "lable": "其他",
+        "icon": "location",
+        "id": "0004",
+        "children": [
+            {
+                "path": "/page1",
+                "name": "page1",
+                "lable": "页面1",
+                "icon": "setting",
+                "url": "Other/PageOne",
+                "id": "0005"
+            },
+            {
+                "path": "/page2",
+                "name": "page2",
+                "lable": "页面2",
+                "icon": "setting",
+                "url": "Other/PageTwo",
+                "id": "0006"
+            }
+        ]
+    }
+]

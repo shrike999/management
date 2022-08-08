@@ -8,7 +8,7 @@
           <img src="../assets/user.png" alt="头像" id="profilePic">
           <p>shrike999</p>
         </div>
-        <div id="occupation">web工程师</div>
+        <div id="occupation">{{userClass}}</div>
         <div id="school">北京理工大学</div>
       </el-card>
       <el-card style="margin-top: 20px; border-radius: 20px;">
@@ -147,8 +147,10 @@ export default {
     //
     this.$axios.get('http://localhost:3000/list')
     .then((response)=>{
+      console.log('response:', response);
       let keyArr = []
       let series = []
+      console.log(response.data);
       keyArr = Object.keys(response.data[0])
       keyArr.forEach((key)=>{
         series.push({
@@ -307,6 +309,11 @@ export default {
     .catch((error)=>{
       console.log('error', error)
     })
+  },
+  computed: {
+    userClass(){
+      
+    }
   }
 }
 </script>

@@ -13,8 +13,7 @@
                     <img src="../assets/user.png" alt="头像" width="30px">
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>黄金糕</el-dropdown-item>
-                    <el-dropdown-item>狮子头</el-dropdown-item>
+                    <div @click="loggingOut"><el-dropdown-item>登出</el-dropdown-item></div>
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -30,7 +29,19 @@ import { mapMutations } from 'vuex'
             }
         },
         methods: {
-            ...mapMutations(['changeFold'])
+            ...mapMutations(['changeFold']),
+            loggingOut(){
+                console.log('@@@');
+                this.$axios({
+                    url: 'http://localhost:3000/logout',
+                    method: 'get',
+                    withCredentials: true,
+                }).then(res => {
+                    this.$router.push({name: 'login'})
+                }).catch(err => {
+                    this.$router.push({name: 'login'})
+                })
+            }
         },
         computed: {
             fold(){
