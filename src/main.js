@@ -80,28 +80,3 @@ new Vue({
     Vue.prototype.$axios = axios;
   }
 }).$mount('#app')
-
-function debounce(func, delay) {
-  let timer;
-  let that = this;
-  let args = arguments;
-  return function () {
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      func.apply(that, args)
-    }, delay)
-  }
-}
-
-function throttle(func, delay) {
-  let that = this
-  let args = arguments
-  let pre = 0
-  return function () {
-    let now = new Date()
-    if ((now - pre) > delay) {
-      func.apply(that, args)
-      pre = now
-    }
-  }
-}

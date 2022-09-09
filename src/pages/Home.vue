@@ -150,7 +150,6 @@ export default {
       console.log('response:', response);
       let keyArr = []
       let series = []
-      console.log(response.data);
       keyArr = Object.keys(response.data[0])
       keyArr.forEach((key)=>{
         series.push({

@@ -8,7 +8,7 @@ export default new Vuex.Store({
         tagList: [
 
         ],
-        accessToken: null
+        accessToken: null,
     },
     mutations: {
         changeFold(state) {
@@ -24,6 +24,6 @@ export default new Vuex.Store({
             if (t) {
                 state.tagList.push(val)
             }
-        }
+        },
     }
 })

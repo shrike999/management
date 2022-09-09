@@ -24,7 +24,7 @@ for (let i = 0; i < 7; i++) {
     weekly.thisWeek.push(Math.floor(Math.random() * 5 + 5))
     //
 }
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 500; i++) {
     userList.push({
         name: Random.cname(),
         age: Math.floor(Math.random() * 20 + 18),
